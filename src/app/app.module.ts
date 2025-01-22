@@ -62,6 +62,36 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
+				path: 'recipephases',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipephases'
+					}
+				},
+				loadChildren: () => import('./modules/recipephase/pages/recipephases/recipephases.module').then(m => m.RecipephasesModule)
+			}, 
+			{
+				path: 'recipeingredients',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipeingredients'
+					}
+				},
+				loadChildren: () => import('./modules/recipeingredient/pages/recipeingredients/recipeingredients.module').then(m => m.RecipeingredientsModule)
+			}, 
+			{
+				path: 'recipes',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipes'
+					}
+				},
+				loadChildren: () => import('./modules/recipe/pages/recipes/recipes.module').then(m => m.RecipesModule)
+			}, 
+			{
 				path: 'profile',
 				canActivate: [MetaGuard],
 				data: {
