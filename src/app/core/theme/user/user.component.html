@@ -95,8 +95,28 @@
 					class="nav__burger-link"
 					(click)="hideSidebar()"
 				>
-					<span class="material-icons">translate</span>
+					<span class="material-icons">menu_book</span>
 					<span translate>Theme.Recipes</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipeingredients"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">restaurant_menu</span>
+					<span translate>Theme.Ingredients</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipephases"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">timer</span>
+					<span translate>Theme.Phases</span>
 				</a>
 				<hr>
 			</div>
