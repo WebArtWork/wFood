@@ -62,16 +62,6 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
-				path: 'adminpages',
-				canActivate: [MetaGuard],
-				data: {
-					meta: {
-						title: 'Adminpages'
-					}
-				},
-				loadChildren: () => import('./pages/user/adminpages/adminpages.module').then(m => m.AdminpagesModule)
-			}, 
-			{
 				path: 'recipecreationpage',
 				canActivate: [MetaGuard],
 				data: {
