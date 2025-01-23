@@ -62,6 +62,66 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
+				path: 'adminpages',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Adminpages'
+					}
+				},
+				loadChildren: () => import('./pages/user/adminpages/adminpages.module').then(m => m.AdminpagesModule)
+			}, 
+			{
+				path: 'recipecreationpage',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipecreationpage'
+					}
+				},
+				loadChildren: () => import('./pages/user/recipecreationpage/recipecreationpage.module').then(m => m.RecipecreationpageModule)
+			}, 
+			{
+				path: 'recipeprofile',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipeprofile'
+					}
+				},
+				loadChildren: () => import('./pages/user/recipeprofile/recipeprofile.module').then(m => m.RecipeprofileModule)
+			}, 
+			{
+				path: 'roulette',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Roulette'
+					}
+				},
+				loadChildren: () => import('./pages/user/roulette/roulette.module').then(m => m.RouletteModule)
+			}, 
+			{
+				path: 'recipeselection',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipeselection'
+					}
+				},
+				loadChildren: () => import('./pages/user/recipeselection/recipeselection.module').then(m => m.RecipeselectionModule)
+			}, 
+			{
+				path: 'myrecipes',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Myrecipes'
+					}
+				},
+				loadChildren: () => import('./pages/user/myrecipes/myrecipes.module').then(m => m.MyrecipesModule)
+			}, 
+			{
 				path: 'recipephases',
 				canActivate: [MetaGuard],
 				data: {
