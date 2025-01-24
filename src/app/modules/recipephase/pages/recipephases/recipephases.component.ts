@@ -7,6 +7,7 @@ import { TranslateService } from 'src/app/core/modules/translate/translate.servi
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { recipephaseFormComponents } from '../../formcomponents/recipephase.formcomponents';
 import { firstValueFrom } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	templateUrl: './recipephases.component.html',
@@ -23,7 +24,7 @@ export class RecipephasesComponent {
 		perPage: 20,
 		setPerPage: this._recipephaseService.setPerPage.bind(this._recipephaseService),
 		allDocs: false,
-		create: (): void => {
+		create: this._router.url.includes('recipephases/') ? (): void => {
 			this._form.modal<Recipephase>(this.form, {
 				label: 'Create',
 				click: async (created: unknown, close: () => void) => {
@@ -38,7 +39,8 @@ export class RecipephasesComponent {
 					this.setRows();
 				},
 			});
-		},
+		}
+		: null,
 		update: (doc: Recipephase): void => {
 			this._form
 				.modal<Recipephase>(this.form, [], doc)
@@ -92,14 +94,24 @@ export class RecipephasesComponent {
 
 	rows: Recipephase[] = [];
 
+	recipe_id = '';
+
 	constructor(
 		private _translate: TranslateService,
 		private _recipephaseService: RecipephaseService,
+		private _route: ActivatedRoute,	
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _router: Router
 	) {
 		this.setRows();
+
+		this._route.paramMap.subscribe(params => {
+			this.recipe_id = params.get('recipe_id') || '';
+
+			console.log(this.recipe_id);
+		})
 	}
 
 	setRows(page = this._page): void {
@@ -108,7 +120,9 @@ export class RecipephasesComponent {
 		this._core.afterWhile(
 			this,
 			() => {
-				this._recipephaseService.get({ page }).subscribe((rows) => {
+				this._recipephaseService
+				.get({ page, query: this._query() })
+				.subscribe((rows) => {
 					this.rows.splice(0, this.rows.length);
 
 					this.rows.push(...rows);
@@ -173,6 +187,21 @@ export class RecipephasesComponent {
 	}
 
 	private _preCreate(recipephase: Recipephase): void {
-		delete recipephase.__created;
-	}
+			recipephase.__created = false;
+	
+			if (this.recipe_id) {
+				recipephase.recipe = this.recipe_id;
+			}
+	
+		}
+	
+		private _query(): string {
+			let query = '';
+
+			if (this.recipe_id) {
+				query += (query ? '&' : '') + 'recipe=' + this.recipe_id;
+			}
+			
+			return query;
+		}	
 }

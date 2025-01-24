@@ -70,6 +70,18 @@ export class RecipesComponent {
 		},
 		buttons: [
 			{
+				icon: 'restaurant_menu',
+				hrefFunc: (doc: Recipe): string => {
+					return '/recipeingredients/' + doc._id;
+				},
+			},
+			{
+				icon: 'timer',
+				hrefFunc: (doc: Recipe): string => {
+					return '/recipephases/' + doc._id;
+				},
+			},
+			{
 				icon: 'cloud_download',
 				click: (doc: Recipe): void => {
 					this._form.modalUnique<Recipe>('recipe', 'url', doc);
