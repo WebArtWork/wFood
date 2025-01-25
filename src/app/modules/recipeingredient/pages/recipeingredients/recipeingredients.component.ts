@@ -24,7 +24,7 @@ export class RecipeingredientsComponent {
 		perPage: 20,
 		setPerPage: this._recipeingredientService.setPerPage.bind(this._recipeingredientService),
 		allDocs: false,
-		create: this._router.url.includes('recipeingredients/') ? (): void => {
+		create: (): void => {
 			this._form.modal<Recipeingredient>(this.form, {
 				label: 'Create',
 				click: async (created: unknown, close: () => void) => {
@@ -39,8 +39,7 @@ export class RecipeingredientsComponent {
 					this.setRows();
 				},
 			});
-		}
-		 : null,
+		},
 		update: (doc: Recipeingredient): void => {
 			this._form
 				.modal<Recipeingredient>(this.form, [], doc)

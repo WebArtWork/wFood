@@ -24,7 +24,7 @@ export class RecipephasesComponent {
 		perPage: 20,
 		setPerPage: this._recipephaseService.setPerPage.bind(this._recipephaseService),
 		allDocs: false,
-		create: this._router.url.includes('recipephases/') ? (): void => {
+		create: (): void => {
 			this._form.modal<Recipephase>(this.form, {
 				label: 'Create',
 				click: async (created: unknown, close: () => void) => {
@@ -39,8 +39,8 @@ export class RecipephasesComponent {
 					this.setRows();
 				},
 			});
-		}
-		: null,
+		},
+		
 		update: (doc: Recipephase): void => {
 			this._form
 				.modal<Recipephase>(this.form, [], doc)
