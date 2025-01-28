@@ -101,6 +101,46 @@
 				<a
 					[routerLinkActiveOptions]="{ exact: true }"
 					routerLinkActive="_activeLink"
+					routerLink="/myrecipes"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">receipt_long</span>
+					<span translate>Theme.My recipes</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipeselection"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">swipe</span>
+					<span translate>Theme.Recipe selection</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/roulette"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">rotate_right</span>
+					<span translate>Theme.Roulette</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipecreationpage"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">note_add</span>
+					<span translate>Theme.Recipe creation</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
 					routerLink="/recipeingredients"
 					class="nav__burger-link"
 					(click)="hideSidebar()"
@@ -117,7 +157,7 @@
 				>
 					<span class="material-icons">timer</span>
 					<span translate>Theme.Phases</span>
-				</a>
+			    </a>
 				<hr>
 			</div>
 		</div>
