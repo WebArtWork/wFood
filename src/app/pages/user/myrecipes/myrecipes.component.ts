@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
 	styleUrls: ['./myrecipes.component.scss'],
 	standalone: false
 })
-export class MyrecipesComponent {}
+export class MyrecipesComponent {
+	isMenuOpen=false;	
+}
