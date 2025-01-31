@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: '',
+		path: ':recipeprofile_id', //TODO// :recipeprofile_id or :recipe_id?
 		component: RecipeprofileComponent
 	}
 ];

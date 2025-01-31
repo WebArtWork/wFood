@@ -68,10 +68,13 @@
 					<div
 						*ngFor="let recipe of myrecipes"
 						class="documents-main-row"
-					></div>
+					>
+						<a routerLink="/recipeprofile/{{recipeprofile._id}}">
+							<app-myrecipe [recipe]="recipe"></app-myrecipe>
+						</a>
+					</div> //TODO// im not sure which one i should use here recipeprofile or recipe
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-//TODO// check

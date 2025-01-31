@@ -14,4 +14,3 @@ export class MyrecipesComponent {
 	isMenuOpen = false
 	constructor(private _recipeService: RecipeService) {}
 }
-//TODO// check
