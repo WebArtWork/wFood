@@ -5,10 +5,10 @@
 				<a
 					routerLinkActive="_activeLink"
 					(click)="showSidebar = false"
-					routerLink="/profile"
+					routerLink="/myrecipes"
 					class="nav__a"
 				>
-					<span class="material-icons">home</span>
+					<span class="material-icons">receipt_long</span>
 				</a>
 			</li>
 			<li class="nav__li _burger" (click)="showSidebar = !showSidebar">
@@ -101,6 +101,27 @@
 				<a
 					[routerLinkActiveOptions]="{ exact: true }"
 					routerLinkActive="_activeLink"
+					routerLink="/recipeingredients"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">restaurant_menu</span>
+					<span translate>Theme.Ingredients</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipephases"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">timer</span>
+					<span translate>Theme.Phases</span>
+				</a>
+				<hr />
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
 					routerLink="/myrecipes"
 					class="nav__burger-link"
 					(click)="hideSidebar()"
@@ -138,27 +159,6 @@
 					<span class="material-icons">note_add</span>
 					<span translate>Theme.Recipe creation</span>
 				</a>
-				<a
-					[routerLinkActiveOptions]="{ exact: true }"
-					routerLinkActive="_activeLink"
-					routerLink="/recipeingredients"
-					class="nav__burger-link"
-					(click)="hideSidebar()"
-				>
-					<span class="material-icons">restaurant_menu</span>
-					<span translate>Theme.Ingredients</span>
-				</a>
-				<a
-					[routerLinkActiveOptions]="{ exact: true }"
-					routerLinkActive="_activeLink"
-					routerLink="/recipephases"
-					class="nav__burger-link"
-					(click)="hideSidebar()"
-				>
-					<span class="material-icons">timer</span>
-					<span translate>Theme.Phases</span>
-			    </a>
-				<hr>
 			</div>
 		</div>
 		<router-outlet></router-outlet>

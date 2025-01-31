@@ -32,56 +32,46 @@
   
 -->
 
-
-<div class="documents-wrapper" [class.documents-wrapper--open]="isMenuOpen"> 
-  <div class="documents-container">
-      <div class="documents-list">
-          <div class="burger-wrap" class="burger-wrap"  (click)="isMenuOpen=!isMenuOpen" [class.burger-wrap--open]="isMenuOpen">
-              <div class="burger" [class.burger--close]="isMenuOpen"></div>
-          </div> 
-          <div class="documents-sidebar" [class.documents-sidebar--open]="isMenuOpen">
-              <div class="documents-sidebar-content">
-                  <div class="documents-sidebar__img">
-                      <img src="assets/default.png" alt="">
-                  </div>
-                  <div class="documents-sidebar__title">
-                      Title of sidebar...
-                  </div>
-                  <div class="documents-sidebar__description">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint molestiae consequatur quae. Modi corporis rem amet tempore debitis assumenda minima repellat labore expedita quam. Itaque accusamus culpa ullam necessitatibus nisi.
-                  </div>
-              </div>
-          </div>
-          <div class="documents-main">
-              <div class="documents-main-content">
-                  <div  class="documents-main-row">
-                    <h1>My Recipes</h1>
-                    <div class="search-bar">
-                      <input type="text" placeholder="Search recipes..." />
-                    </div>
-                    
-                
-                    <div class="filters">
-                      <button>Breakfast</button>
-                      <button>Lunch</button>
-                      <button>Dessert</button>
-                    </div>
-
-                    <div class="recipes-list">
-
-                      <div class="recipe-card">
-                        <img src="recipe-image.jpg" alt="Recipe Image" />
-                        <h2>Recipe Name</h2>
-                        <p>Short description...</p>
-                        <button>View Recipe</button>
-                        <button>Delete</button>
-                      </div>
-                
-                    </div>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-  </div>
+<div class="documents-wrapper" [class.documents-wrapper--open]="isMenuOpen">
+	<div class="documents-container">
+		<div class="documents-list">
+			<div
+				class="burger-wrap"
+				class="burger-wrap"
+				(click)="isMenuOpen=!isMenuOpen"
+				[class.burger-wrap--open]="isMenuOpen"
+			>
+				<div class="burger" [class.burger--close]="isMenuOpen"></div>
+			</div>
+			<div
+				class="documents-sidebar"
+				[class.documents-sidebar--open]="isMenuOpen"
+			>
+				<div class="documents-sidebar-content">
+					<div class="documents-sidebar__img">
+						<img src="assets/default.png" alt="" />
+					</div>
+					<div class="documents-sidebar__title">
+						Title of sidebar...
+					</div>
+					<div class="documents-sidebar__description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Sint molestiae consequatur quae. Modi corporis rem amet
+						tempore debitis assumenda minima repellat labore
+						expedita quam. Itaque accusamus culpa ullam
+						necessitatibus nisi.
+					</div>
+				</div>
+			</div>
+			<div class="documents-main">
+				<div class="documents-main-content">
+					<div
+						*ngFor="let recipe of myrecipes"
+						class="documents-main-row"
+					></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+//TODO// check

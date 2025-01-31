@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Recipe } from 'src/app/modules/recipe/interfaces/recipe.interface';
+import { RecipeService } from 'src/app/modules/recipe/services/recipe.service';
 
 @Component({
 	templateUrl: './myrecipes.component.html',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
 	standalone: false
 })
 export class MyrecipesComponent {
-	isMenuOpen=false;	
+	get myrecipes(): Recipe[] {
+		return this._recipeService.recipes;
+	}
+	isMenuOpen = false
+	constructor(private _recipeService: RecipeService) {}
 }
+//TODO// check
