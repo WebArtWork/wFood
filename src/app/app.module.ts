@@ -62,6 +62,16 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
+				path: 'recipesearch',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Recipesearch'
+					}
+				},
+				loadChildren: () => import('./pages/user/recipesearch/recipesearch.module').then(m => m.RecipesearchModule)
+			}, 
+			{
 				path: 'recipecreationpage',
 				canActivate: [MetaGuard],
 				data: {

@@ -20,10 +20,11 @@
 
 	<div class="documents-main">
 		<div class="documents-main-content">
-			<app-roulettes
-				*ngFor="let roulettes of roulette"
-				[roulettes]="roulettes"
-			></app-roulettes>
+			<div *ngFor="let roulettes of roulette" class="documents-main-row">
+				<a routerLink="/recipeprofile/{{roulettes._id}}">
+					<app-roulettes [roulettes]="roulettes"></app-roulettes>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>

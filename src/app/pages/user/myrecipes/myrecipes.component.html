@@ -66,11 +66,11 @@
 			<div class="documents-main">
 				<div class="documents-main-content">
 					<div
-						*ngFor="let recipe of myrecipes"
+						*ngFor="let myrecipe of myrecipes"
 						class="documents-main-row"
 					>
-						<a routerLink="/recipeprofile/{{recipe._id}}">
-							<app-myrecipe [recipe]="recipe"></app-myrecipe>
+						<a routerLink="/recipeprofile/{{myrecipe._id}}">
+							<app-myrecipe [myrecipe]="myrecipe"></app-myrecipe>
 						</a>
 					</div>
 				</div>

@@ -191,7 +191,7 @@ export class SignComponent {
 
 			this.us.get();
 
-			this._router.navigateByUrl('/myrecipes');
+			this._router.navigateByUrl('/recipesearch');
 		} else {
 			this._alert.error({
 				text: 'Something went wrong'

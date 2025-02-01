@@ -8,5 +8,5 @@ import { Recipe } from 'src/app/modules/recipe/interfaces/recipe.interface';
   styleUrl: './myrecipe.component.scss'
 })
 export class MyrecipeComponent {
- @Input() recipe: Recipe;
+ @Input() myrecipe: Recipe;
 }

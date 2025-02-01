@@ -5,12 +5,22 @@
 				<a
 					routerLinkActive="_activeLink"
 					(click)="showSidebar = false"
+					routerLink="/recipesearch"
+					class="nav__a"
+				>
+					<span class="material-icons">search</span>
+				</a>
+			</li>
+			<li class="nav__li">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
 					routerLink="/myrecipes"
 					class="nav__a"
+					(click)="hideSidebar()"
 				>
 					<span class="material-icons">receipt_long</span>
 				</a>
-			</li>
 			<li class="nav__li">
 				<a
 					[routerLinkActiveOptions]="{ exact: true }"
@@ -153,6 +163,16 @@
 					<span translate>Theme.Phases</span>
 				</a>
 				<hr />
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipesearch"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">search</span>
+					<span translate>Theme.Recipe search</span>
+				</a>
 				<a
 					[routerLinkActiveOptions]="{ exact: true }"
 					routerLinkActive="_activeLink"

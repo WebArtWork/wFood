@@ -1,0 +1,8 @@
+<p>Page Recipesearch is connected</p>
+<div *ngFor="let recipesearches of recipesearch" class="documents-main-row">
+	<a routerLink="/recipeprofile/{{recipesearches._id}}">
+		<app-recipesearches
+			[recipesearches]="recipesearches"
+		></app-recipesearches>
+	</a>
+</div>

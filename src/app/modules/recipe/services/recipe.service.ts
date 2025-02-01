@@ -44,13 +44,5 @@ saveRecipe(recipe: Recipe) {
     console.log('Recipe saved:', recipe);
   }
 }
-// У твоєму RecipeService додай наступний метод для видалення рецепту
 
-removeRecipe(recipe: Recipe): void {
-	const index = this.recipes.findIndex(r => r.id === recipe.id);
-	if (index !== -1) {
-	  this.recipes.splice(index, 1); // Видаляємо рецепт зі списку
-	}
-  }
-  
 }

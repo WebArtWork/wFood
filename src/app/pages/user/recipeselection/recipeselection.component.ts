@@ -26,7 +26,7 @@ export class RecipeSelectionComponent {
     if (action === 'like') {
       this._recipeService.saveRecipe(recipe); // Додати до "Мої рецепти"
     } else {
-      this._recipeService.removeRecipe(recipe); // Відхилити рецепт
+       // Відхилити рецепт
     }
     this.getRandomRecipe(); // Після свайпу отримуємо новий рецепт
   }
