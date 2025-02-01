@@ -1,18 +1,23 @@
-<p>Page Recipeselection is connected</p>
+<p>Page Recipe Selection is connected</p>
 
 <div class="recipe-selection">
 	<h1>Recipe Selection</h1>
 
 	<!-- Картка рецепту з кнопками для свайпу -->
-	<div class="recipe-card">
+	<div
+		class="recipe-card"
+		*ngIf="randomRecipe"
+		(swipeleft)="onSwipe(randomRecipe, 'dislike')"
+		(swiperight)="onSwipe(randomRecipe, 'like')"
+	>
 		<img src="recipe-image.jpg" alt="Recipe Image" />
-		<h2>Recipe Name</h2>
-		<p>Short description...</p>
+		<h2>{{ randomRecipe.name }}</h2>
+		<p>{{ randomRecipe.description }}</p>
 
 		<div class="swipe-actions">
-			<button>Like</button>
+			<button (click)="onSwipe(randomRecipe, 'like')">Like</button>
 			<!-- Додати до "Мої рецепти" -->
-			<button>Dislike</button>
+			<button (click)="onSwipe(randomRecipe, 'dislike')">Dislike</button>
 			<!-- Відхилити -->
 		</div>
 	</div>

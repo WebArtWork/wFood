@@ -6,11 +6,24 @@
 	<!-- Кнопка запуску рулетки -->
 	<button class="spin-button">Spin the Roulette</button>
 
-	<!-- Випадковий рецепт -->
-	<div class="random-recipe">
+	<!-- Випадковий рецепт зі свайпом -->
+	<div
+		class="random-recipe"
+		*ngIf="randomRecipe"
+		(swipeleft)="onSwipe(randomRecipe)"
+	>
 		<img src="recipe-image.jpg" alt="Recipe Image" />
-		<h2>Random Recipe Name</h2>
-		<p>Short description...</p>
+		<h2>{{ randomRecipe.name }}</h2>
+		<p>{{ randomRecipe.description }}</p>
 		<button>View Recipe</button>
+	</div>
+
+	<div class="documents-main">
+		<div class="documents-main-content">
+			<app-roulettes
+				*ngFor="let roulettes of roulette"
+				[roulettes]="roulettes"
+			></app-roulettes>
+		</div>
 	</div>
 </div>

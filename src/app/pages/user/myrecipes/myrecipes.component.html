@@ -69,10 +69,10 @@
 						*ngFor="let recipe of myrecipes"
 						class="documents-main-row"
 					>
-						<a routerLink="/recipeprofile/{{recipeprofile._id}}">
+						<a routerLink="/recipeprofile/{{recipe._id}}">
 							<app-myrecipe [recipe]="recipe"></app-myrecipe>
 						</a>
-					</div> //TODO// im not sure which one i should use here recipeprofile or recipe
+					</div>
 				</div>
 			</div>
 		</div>

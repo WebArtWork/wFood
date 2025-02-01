@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: ':recipeprofile_id', //TODO// :recipeprofile_id or :recipe_id?
+		path: ':recipeprofile_id',
 		component: RecipeprofileComponent
 	}
 ];
@@ -14,4 +14,6 @@ const routes: Routes = [
 	imports: [RouterModule.forChild(routes), CoreModule],
 	declarations: [RecipeprofileComponent]
 })
-export class RecipeprofileModule {}
+export class RecipeprofileModule {
+	
+}

@@ -11,6 +11,40 @@
 					<span class="material-icons">receipt_long</span>
 				</a>
 			</li>
+			<li class="nav__li">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipeselection"
+					class="nav__a"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">swipe</span>
+				</a>
+			</li>
+			<li class="nav__li">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/roulette"
+					class="nav__a"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">rotate_right</span>
+				</a>
+			</li>
+
+			<li class="nav__li">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/recipecreationpage"
+					class="nav__a"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">note_add</span>
+				</a>
+			</li>
 			<li class="nav__li _burger" (click)="showSidebar = !showSidebar">
 				<a class="nav__toggle" [class._active]="showSidebar">
 					<span class="nav__toggle-line"></span>

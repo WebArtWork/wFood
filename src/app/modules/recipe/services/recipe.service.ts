@@ -36,4 +36,21 @@ export class RecipeService extends CrudService<Recipe> {
 
 		this.filteredDocuments(this.recipesByAuthor);
 	}
+	recipesSaved: Recipe[] = []; // Масив для збережених рецептів
+
+saveRecipe(recipe: Recipe) {
+  if (!this.recipesSaved.find(r => r._id === recipe._id)) {
+    this.recipesSaved.push(recipe);
+    console.log('Recipe saved:', recipe);
+  }
+}
+// У твоєму RecipeService додай наступний метод для видалення рецепту
+
+removeRecipe(recipe: Recipe): void {
+	const index = this.recipes.findIndex(r => r.id === recipe.id);
+	if (index !== -1) {
+	  this.recipes.splice(index, 1); // Видаляємо рецепт зі списку
+	}
+  }
+  
 }
