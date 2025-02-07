@@ -1,0 +1,1 @@
+var e={formId:"recipe",title:"Recipe",components:[{name:"Text",key:"name",focused:!0,fields:[{name:"Placeholder",value:"fill recipe title"},{name:"Label",value:"Title"}]},{name:"Text",key:"description",fields:[{name:"Placeholder",value:"fill recipe description"},{name:"Label",value:"Description"}]}]};export{e as a};
