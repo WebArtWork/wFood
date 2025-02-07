@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CoreModule } from 'src/app/core/core.module';
+import { RecipecreationpagesComponent } from './recipecreationpages/recipecreationpages.component';
 import { RecipecreationpageComponent } from './recipecreationpage.component';
 import { Routes, RouterModule } from '@angular/router';
-import { RecipecreationpagesComponent } from './recipecreationpages/recipecreationpages.component';
+
 
 const routes: Routes = [
 	{

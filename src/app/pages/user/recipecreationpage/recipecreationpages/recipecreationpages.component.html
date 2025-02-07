@@ -1,1 +1,11 @@
-<p>recipecreationpages works!</p>
+<a routerLink="/recipeprofile/{{recipecreationpages._id}}">
+	<div class="documents__title">{{recipecreationpages.name}}</div>
+	<div class="documents__description">{{recipecreationpages.description}}</div>
+</a>
+
+<a routerLink="/patienthistory/{{recipecreationpages._id}}" class="nav__burger-link">
+	<span class="material-icons">folder</span>
+</a>
+
+<span (click)="update(recipecreationpages)" class="material-icons">edit</span>
+<span (click)="delete(recipecreationpages)" class="material-icons">delete</span>

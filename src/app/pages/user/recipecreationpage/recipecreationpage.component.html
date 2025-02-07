@@ -1,22 +1,47 @@
-<p>Page Recipecreationpage is connected</p>
-
-<div class="recipe-creation">
-	<h1>Create a New Recipe</h1>
-
-	<!-- Форма для введення рецепту -->
-	<form>
-		<label for="recipe-name">Recipe Name</label>
-		<input type="text" id="recipe-name" placeholder="Enter recipe name" />
-
-		<label for="ingredients">Ingredients</label>
-		<textarea id="ingredients" placeholder="List ingredients here"></textarea>
-
-		<label for="steps">Steps</label>
-		<textarea id="steps" placeholder="Describe the steps here"></textarea>
-
-		<label for="recipe-image">Recipe Image</label>
-		<input type="file" id="recipe-image" />
-
-		<button type="submit">Save Recipe</button>
-	</form>
+<div class="documents-wrapper" [class.documents-wrapper--open]="isMenuOpen">
+	<div class="documents-container">
+		<div class="documents-list">
+			<div
+				class="burger-wrap"
+				class="burger-wrap"
+				(click)="isMenuOpen=!isMenuOpen"
+				[class.burger-wrap--open]="isMenuOpen"
+			>
+				<div class="burger" [class.burger--close]="isMenuOpen"></div>
+			</div>
+			<div
+				class="documents-sidebar"
+				[class.documents-sidebar--open]="isMenuOpen"
+			>
+				<div class="documents-sidebar-content">
+					<div class="documents-sidebar__img">
+						<img src="assets/default.png" alt="" />
+					</div>
+					<div class="documents-sidebar__title">
+						Title of sidebar...
+					</div>
+					<div class="documents-sidebar__description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Sint molestiae consequatur quae. Modi corporis rem amet
+						tempore debitis assumenda minima repellat labore
+						expedita quam. Itaque accusamus culpa ullam
+						necessitatibus nisi.
+					</div>
+					<wbutton (click) = "create()">Create</wbutton>
+				</div>
+			</div>
+			<div class="documents-main">
+				<div class="documents-main-content">
+					<div
+						*ngFor="let recipecreationpages of recipecreationpage"
+						class="documents-main-row"
+					>
+						<app-recipecreationpages
+							[recipecreationpages]="recipecreationpages"
+						></app-recipecreationpages>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
