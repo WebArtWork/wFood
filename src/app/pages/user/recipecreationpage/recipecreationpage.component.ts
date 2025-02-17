@@ -15,21 +15,21 @@ export class RecipecreationpageComponent {
 	get recipecreationpage(): Recipe[] {
 		return this._recipeService.recipes;
 	}
-	form: FormInterface = this._form.getForm('patient', recipeFormComponents);
-	isMenuOpen=false;
+	form: FormInterface = this._form.getForm('recipe', recipeFormComponents);
+	isMenuOpen = false;
 	constructor(
 		private _recipeService: RecipeService,
 		private _form: FormService,
-		private _router: Router,) {}
-		create(): void {
-			this._form.modal<Recipe>(this.form, {
-				label: 'Create',
-				click: (created: unknown, close: () => void) => {
-					this._recipeService.create(created as Recipe).subscribe((recipecreationpages) => {
-						close();
-						this._router.navigate(['/recipeprofile', recipecreationpages._id]);
-					});	
+		private _router: Router,) { }
+	create(): void {
+		this._form.modal<Recipe>(this.form, {
+			label: 'Create',
+			click: (created: unknown, close: () => void) => {
+				this._recipeService.create(created as Recipe).subscribe((recipecreationpages) => {
+					close();
+					this._router.navigate(['/recipeprofile', recipecreationpages._id]);
+				});
+			}
+		})
 	}
-	})
-}
 }

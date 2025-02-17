@@ -14,6 +14,7 @@ import { AuthenticatedGuard } from './core/guards/authenticated.guard';
 import { GuestGuard } from './core/guards/guest.guard';
 import { AdminsGuard } from './core/guards/admins.guard';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 	{
@@ -223,6 +224,7 @@ const routes: Routes = [
 @NgModule({
 	declarations: [AppComponent, GuestComponent, UserComponent],
 	imports: [
+		FormsModule,
 		CoreModule,
 		BrowserModule,
 		BrowserAnimationsModule,
