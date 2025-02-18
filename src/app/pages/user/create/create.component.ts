@@ -16,25 +16,17 @@ export class CreateComponent {
 	addIngredient(ingredients: string) {
 		this.recipe.ingredients.push(ingredients);
 	}
-
-
-	get create(): Recipeingredient[] {
-			return this._recipeingredientServise.recipeingredients;
-		}
-		isMenuOpen = false
-		constructor(private _recipeingredientServise: RecipeingredientService) {}
-	
-}
-export class CreatesComponent {
-    recip: Recipe = {} as Recipe;
-
 	addPhases(phases: string) {
-		this.recip.phases.push(phases);
+		this.recipe.phases.push(phases);
 	}
-
-	get create(): Recipephase[] {
-		return this._recipephaseServise.recipephases;
+	get create(): { recipephases: Recipephase[], recipeingredients: Recipeingredient[] } {
+		return {
+			recipephases: this._recipephaseServise.recipephases,
+			recipeingredients: this._recipeingredientServise.recipeingredients
+		};
 	}
 	isMenuOpen = false
-	constructor(private _recipephaseServise: RecipephaseService) {}
+	constructor(private _recipeingredientServise: RecipeingredientService,
+		private _recipephaseServise: RecipephaseService) { }
+
 }
