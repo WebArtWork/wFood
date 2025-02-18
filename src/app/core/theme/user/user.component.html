@@ -55,6 +55,17 @@
 					<span class="material-icons">note_add</span>
 				</a>
 			</li>
+			<li class="nav__li">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/create"
+					class="nav__a"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">library_add</span>
+				</a>
+			</li>
 			<li class="nav__li _burger" (click)="showSidebar = !showSidebar">
 				<a class="nav__toggle" [class._active]="showSidebar">
 					<span class="nav__toggle-line"></span>
@@ -212,6 +223,16 @@
 				>
 					<span class="material-icons">note_add</span>
 					<span translate>Theme.Recipe creation</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/create"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">library_add</span>
+					<span translate>Theme.Creation</span>
 				</a>
 			</div>
 		</div>

@@ -12,6 +12,9 @@ import {
 	providedIn: 'root',
 })
 export class RecipeingredientService extends CrudService<Recipeingredient> {
+	
+	recipeingredients: Recipeingredient[] = this.getDocs();
+	recipesByAuthor: Record<string, Recipeingredient[]> = {};
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -27,5 +30,7 @@ export class RecipeingredientService extends CrudService<Recipeingredient> {
 			_alert,
 			_core
 		);
+		this.get();
+		this.filteredDocuments(this.recipesByAuthor);
 	}
 }
