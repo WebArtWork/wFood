@@ -59,9 +59,16 @@
 							<div class="documents-tags__wrap">
 								<div
 									class="documents-tags__item"
-									*ngFor="let ingredients of recipe.ingredients"
+									*ngFor="let ingredient of recipe.ingredients"
 								>
-									{{ingredients}}
+									{{ingredient}}
+								</div>
+								<div
+									class="documents-tags__item"
+									*ngFor="let ingredient of ingredients"
+									(click)= "recipe.ingredients.push(ingredient._id)"
+								>
+								{{recipeingredientService.doc(ingredient).name}}
 								</div>
 							</div>
 						</div>
@@ -75,9 +82,16 @@
 							<div class="documents-tags__wrap">
 								<div
 									class="documents-tags__item"
-									*ngFor="let phases of recipe.phases"
+									*ngFor="let phase of recipe.phases"
 								>
-									{{phases}}
+									{{phase}}
+								</div>
+								<div
+									class="documents-tags__item"
+									*ngFor="let phase of phases"
+									(click)= "recipe.phases.push(phase._id)"
+								>
+								{{recipephaseService.doc(phase).name}}
 								</div>
 							</div>
 						</div>

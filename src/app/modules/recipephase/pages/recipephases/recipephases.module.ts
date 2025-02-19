@@ -19,4 +19,4 @@ const routes: Routes = [
 	declarations: [RecipephasesComponent],
 	providers: []
 })
-export class RecipephasesModule {}
+export class RecipephasesModule { }
