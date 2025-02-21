@@ -61,14 +61,14 @@
 									class="documents-tags__item"
 									*ngFor="let ingredient of recipe.ingredients"
 								>
-									{{ingredient}}
+									{{recipeingredientService.doc(ingredient).name}}
 								</div>
 								<div
 									class="documents-tags__item"
 									*ngFor="let ingredient of ingredients"
 									(click)= "recipe.ingredients.push(ingredient._id)"
 								>
-								{{recipeingredientService.doc(ingredient).name}}
+								{{ingredient}}
 								</div>
 							</div>
 						</div>
@@ -84,14 +84,14 @@
 									class="documents-tags__item"
 									*ngFor="let phase of recipe.phases"
 								>
-									{{phase}}
+									{{recipephaseService.doc(phase).name}}
 								</div>
 								<div
 									class="documents-tags__item"
 									*ngFor="let phase of phases"
 									(click)= "recipe.phases.push(phase._id)"
 								>
-								{{recipephaseService.doc(phase).name}}
+								{{phase}}
 								</div>
 							</div>
 						</div>
