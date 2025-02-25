@@ -63,6 +63,16 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
+				path: 'links',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Links'
+					}
+				},
+				loadChildren: () => import('./modules/recipelink/pages/links/links.module').then(m => m.LinksModule)
+			}, 
+			{
 				path: 'create',
 				canActivate: [MetaGuard],
 				data: {

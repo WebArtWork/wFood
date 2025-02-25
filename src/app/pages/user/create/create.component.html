@@ -6,46 +6,28 @@
 					<!-- <div class="documents-header-left__arrow" (click)="back()">
 						<span class="material-icons">arrow_back_ios</span>
 					</div>-->
-					<div
-						class="documents-header-left__avatar"
-						routerLink="/profile"
-					>
+					<div class="documents-header-left__avatar" routerLink="/profile">
 						<!-- <img [src]="userService.thumb" alt="" /> -->
 					</div>
 				</div>
-				<div class="documents-header__title">Title header</div>
-				<div
-					(click)="isMenuOpen = !isMenuOpen"
-					class="burger-wrap"
-					class="burger-wrap"
-				>
-					<div
-						[class.burger--close]="isMenuOpen"
-						class="burger"
-					></div>
+				<div class="documents-header__title"></div>
+				<div (click)="isMenuOpen = !isMenuOpen" class="burger-wrap" class="burger-wrap">
+					<div [class.burger--close]="isMenuOpen" class="burger"></div>
 				</div>
 			</div>
-			<div
-				[class.documents-sidebar--open]="isMenuOpen"
-				class="documents-sidebar"
-			>
-				<div
-					(click)="isMenuOpen = !isMenuOpen"
-					class="documents-sidebar__close"
-				>
+			<div [class.documents-sidebar--open]="isMenuOpen" class="documents-sidebar">
+				<div (click)="isMenuOpen = !isMenuOpen" class="documents-sidebar__close">
 					<span class="material-icons">close</span>
 				</div>
 				<div class="documents-sidebar-content">
 					<div class="documents-sidebar__img">
-						<img
-							src="https://rud.ua/uploads/under_recipe/retsept_mlyntsiv_na_molotsi.jpg"
-							alt=""
-						/>
+						<img src="https://rud.ua/uploads/under_recipe/retsept_mlyntsiv_na_molotsi.jpg" alt="" />
 					</div>
 					<div class="documents-sidebar__title">Млинці</div>
 					<div class="documents-sidebar__description">
 						Простий рецепт млинців на молоці
 					</div>
+					<wbutton (click)="create()">Create</wbutton>
 				</div>
 			</div>
 			<div class="documents-main">
@@ -57,18 +39,13 @@
 						</div>
 						<div class="documents-tags">
 							<div class="documents-tags__wrap">
-								<div
-									class="documents-tags__item"
-									*ngFor="let ingredient of recipe.ingredients"
-								>
+								<div class="documents-tags__item" *ngFor="let ingredient of recipe.ingredients">
 									{{recipeingredientService.doc(ingredient).name}}
 								</div>
-								<div
-									class="documents-tags__item"
-									*ngFor="let ingredient of ingredients"
-									(click)= "recipe.ingredients.push(ingredient._id)"
-								>
-								{{ingredient}}
+								<hr />
+								<div class="documents-tags__item" *ngFor="let ingredient of ingredients"
+									(click)="recipe.ingredients.push(ingredient._id)">
+									{{ingredient.name}}
 								</div>
 							</div>
 						</div>
@@ -80,18 +57,13 @@
 						</div>
 						<div class="documents-tags">
 							<div class="documents-tags__wrap">
-								<div
-									class="documents-tags__item"
-									*ngFor="let phase of recipe.phases"
-								>
+								<div class="documents-tags__item" *ngFor="let phase of recipe.phases">
 									{{recipephaseService.doc(phase).name}}
 								</div>
-								<div
-									class="documents-tags__item"
-									*ngFor="let phase of phases"
-									(click)= "recipe.phases.push(phase._id)"
-								>
-								{{phase}}
+								<hr />
+								<div class="documents-tags__item" *ngFor="let phase of phases"
+									(click)="recipe.phases.push(phase._id)">
+									{{phase.name}}
 								</div>
 							</div>
 						</div>
