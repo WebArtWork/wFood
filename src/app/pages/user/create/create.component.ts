@@ -16,15 +16,19 @@ import { RecipelinkService } from 'src/app/modules/recipelink/services/recipelin
 	standalone: false,
 })
 export class CreateComponent {
-	recipe: Recipe = this._recipeServise.new();
+	recipe: Recipe = this._recipeServiсe.new();
 	addIngredient(ingredients: string) {
 		this.recipe.ingredients.push(ingredients);
 	}
 	addPhase(phases: string) {
 		this.recipe.phases.push(phases);
 	}
+	closeModal(): void {
+		this.isMenuOpen = false;
+		console.log('Модальне вікно закрито');
+	}
 	get phases(): Recipephase[] {
-		return this._recipephaseServise.recipephases;
+		return this._recipephaseServiсe.recipephases;
 	}
 	get ingredients(): Recipeingredient[] {
 		return this._recipeingredientService.recipeingredients;
@@ -41,20 +45,36 @@ export class CreateComponent {
 		public recipeingredientService: RecipeingredientService,
 		private _recipelinkService: RecipelinkService,
 		private _recipeingredientService: RecipeingredientService,
-		private _recipephaseServise: RecipephaseService,
-		private _recipeServise: RecipeService) { this.recipe.phases = [], this.recipe.ingredients = [] }
-		
+		private _recipephaseServiсe: RecipephaseService,
+		private _recipeServiсe: RecipeService,) { this.recipe.phases = [], this.recipe.ingredients = [], this.recipe.imageUrl = ''}
+
+		onFileSelected(event: any) {
+			const file = event.target.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = (e: any) => {
+					this.recipe.imageUrl = e.target.result; // 🔹 Завантажене зображення
+				};
+				reader.readAsDataURL(file);
+			}
+		}
 		create(): void {
-			this._recipeService.create(this.recipe).subscribe((create) => {
-			
+			if (!this.recipe.name || !this.recipe.description || !this.recipe.imageUrl) {
+				alert("Заповніть усі поля!");
+				return;
+			}
+	
+			this._recipeService.create(this.recipe).subscribe((createdRecipe) => {
 				for (const ingredient of this.recipe.ingredients) {
 					this._recipelinkService.create({
-						_id: 'some_unique_id_for_recipelink', 
-						recipe:create._id,
-						ingredient:create._id, 
-						phase:create._id
-					 });
+						id: Date.now(), // Генеруємо унікальний id
+						_id: 'some_unique_id_for_recipelink',
+						recipe: createdRecipe._id,
+						ingredient: createdRecipe._id,
+						phase: createdRecipe._id
+					});
 				}
+				this._router.navigate(['/recipes']); // 🔹 Після створення перенаправляє на список рецептів
 			});
 		}
 }

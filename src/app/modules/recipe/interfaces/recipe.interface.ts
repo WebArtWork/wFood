@@ -5,4 +5,5 @@ export interface Recipe extends CrudDocument {
   description: string; 
   ingredients: string[]; 
   phases: string[]; 
+  imageUrl: string;
 }
