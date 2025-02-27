@@ -1,138 +1,107 @@
 <div class="documents-wrapper" [class.documents-wrapper--open]="isMenuOpen">
 	<div class="documents-container">
-		<div class="documents-list">
-			<div class="documents-header">
-				<div class="documents-header-left">
-					<!-- <div class="documents-header-left__arrow" (click)="back()">
-						<span class="material-icons">arrow_back_ios</span>
-					</div>-->
-					<div
-						class="documents-header-left__avatar"
-						routerLink="/profile"
-					>
-						<!-- <img [src]="userService.thumb" alt="" /> -->
-					</div>
-				</div>
-				<div class="documents-header__title"></div>
+		<div class="documents-header">
+			<div class="documents-header-left">
 				<div
-					(click)="isMenuOpen = !isMenuOpen"
-					class="burger-wrap"
-					class="burger-wrap"
+					class="documents-header-left__avatar"
+					routerLink="/profile"
 				>
-					<div
-						[class.burger--close]="isMenuOpen"
-						class="burger"
-					></div>
+					<!-- Якщо аватар не використовується, можна видалити цей блок -->
 				</div>
 			</div>
-			<div
-				[class.documents-sidebar--open]="isMenuOpen"
-				class="documents-sidebar"
-			>
-				<div
-					(click)="isMenuOpen = !isMenuOpen"
-					class="documents-sidebar__close"
+			<div class="documents-header__title"></div>
+			<div (click)="isMenuOpen = !isMenuOpen" class="burger-wrap">
+				<div [class.burger--close]="isMenuOpen" class="burger"></div>
+			</div>
+		</div>
+
+		<div class="recipe-form">
+			<h2>Додати новий рецепт</h2>
+			<label for="title">Назва рецепту</label>
+			<input
+				id="title"
+				type="text"
+				[(ngModel)]="recipe.name"
+				placeholder="Введіть назву"
+			/>
+
+			<label for="description">Опис</label>
+			<textarea
+				id="description"
+				[(ngModel)]="recipe.description"
+				placeholder="Опис рецепту"
+			></textarea>
+
+			<label for="imageUrl">Зображення (URL)</label>
+			<input
+				id="imageUrl"
+				type="text"
+				[(ngModel)]="recipe.imageUrl"
+				placeholder="Вставте URL зображення"
+			/>
+
+			<div class="file-upload">
+				<label for="fileUpload" class="file-label"
+					>Завантажити зображення</label
 				>
-					<span class="material-icons">close</span>
-				</div>
-				<div class="documents-sidebar-content">
-					<div class="container">
-						<div *ngIf="isMenuOpen" class="modal">
-							<div class="modal-content">
-								<button
-									class="close-button"
-									(click)="closeModal()"
-								>
-									✖
-								</button>
-								<h2>Додати новий рецепт</h2>
+				<input
+					id="fileUpload"
+					type="file"
+					(change)="onFileSelected($event)"
+				/>
+			</div>
 
-								<label for="title">Назва рецепту</label>
-								<input
-									id="title"
-									type="text"
-									[(ngModel)]="recipe.name"
-									placeholder="Введіть назву"
-								/>
+			<button (click)="create()">Додати рецепт</button>
+		</div>
 
-								<label for="description">Опис</label>
-								<textarea
-									id="description"
-									[(ngModel)]="recipe.description"
-									placeholder="Опис рецепту"
-								></textarea>
-
-								<label for="imageUrl">Зображення (URL)</label>
-								<input
-									id="imageUrl"
-									type="text"
-									[(ngModel)]="recipe.imageUrl"
-									placeholder="Вставте URL зображення"
-								/>
-
-								<div class="file-upload">
-									<label for="fileUpload" class="file-label"
-										>Завантажити зображення</label
-									>
-									<input
-										id="fileUpload"
-										type="file"
-										(change)="onFileSelected($event)"
-									/>
-								</div>
-								<wbutton (click)="create()">Create</wbutton>
+		<div class="documents-main">
+			<div class="documents-main-content">
+				<div class="documents-main-row">
+					<div class="documents__title">Інгредієнти</div>
+					<div class="documents__description">
+						Для рецепту вам потрібно:
+					</div>
+					<div class="documents-tags">
+						<div class="documents-tags__wrap">
+							<div
+								class="documents-tags__item"
+								*ngFor="let ingredient of recipe.ingredients"
+							>
+								{{ recipeingredientService.doc(ingredient).name
+								}}
+							</div>
+							<hr />
+							<div
+								class="documents-tags__item"
+								*ngFor="let ingredient of ingredients"
+								(click)="recipe.ingredients.push(ingredient._id)"
+							>
+								{{ ingredient.name }}
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="documents-main">
-				<div class="documents-main-content">
-					<div class="documents-main-row">
-						<div class="documents__title">Інгредієнти</div>
-						<div class="documents__description">
-							Для рецепту вам потрібно:
-						</div>
-						<div class="documents-tags">
-							<div class="documents-tags__wrap">
-								<div
-									class="documents-tags__item"
-									*ngFor="let ingredient of recipe.ingredients"
-								>
-									{{recipeingredientService.doc(ingredient).name}}
-								</div>
-								<hr />
-								<div
-									class="documents-tags__item"
-									*ngFor="let ingredient of ingredients"
-									(click)="recipe.ingredients.push(ingredient._id)"
-								>
-									{{ingredient.name}}
-								</div>
-							</div>
-						</div>
+
+				<div class="documents-main-row">
+					<div class="documents__title">Фази</div>
+					<div class="documents__description">
+						Рецепт поділяється на:
 					</div>
-					<div class="documents-main-row">
-						<div class="documents__title">Фази</div>
-						<div class="documents__description">
-							Рецепт поділяється на:
-						</div>
-						<div class="documents-tags">
-							<div class="documents-tags__wrap">
-								<div
-									class="documents-tags__item"
-									*ngFor="let phase of recipe.phases"
-								>
-									{{recipephaseService.doc(phase).name}}
-								</div>
-								<hr />
-								<div
-									class="documents-tags__item"
-									*ngFor="let phase of phases"
-									(click)="recipe.phases.push(phase._id)"
-								>
-									{{phase.name}}
-								</div>
+					<div class="documents-tags">
+						<div class="documents-tags__wrap">
+							<div
+								class="documents-tags__item"
+								*ngFor="let phase of recipe.phases"
+							>
+								{{ recipephaseService.doc(phase).name }}
+							</div>
+							<hr />
+							<div
+								class="documents-tags__item"
+								*ngFor="let phase of phases"
+								(click)="recipe.phases.push(phase._id)"
+							>
+								{{ phase.name }}
 							</div>
 						</div>
 					</div>

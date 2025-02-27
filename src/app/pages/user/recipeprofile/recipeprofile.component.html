@@ -1,12 +1,38 @@
-<div>
-	<h1>Recipe Profile</h1>
-	<h3>Ingredients</h3>
-	<div *ngFor="let ingredient of recipeprofile">
-		<app-ingredient [ingredient]="ingredient"></app-ingredient>
+<div *ngIf="recipe" class="recipe-details">
+	<h2>{{ recipe.name }}</h2>
+	<div class="recipe-description">
+		<p>{{ recipe.description }}</p>
 	</div>
 
-	<h3>Steps</h3>
-	<div *ngFor="let step of recipeprofile">
-		<app-step [step]="step"></app-step>
+	<!-- Відображення інгредієнтів -->
+	<div class="documents-main-row">
+		<div class="documents__title">Інгредієнти</div>
+		<div class="documents__description">Для рецепту вам потрібно:</div>
+		<div class="documents-tags">
+			<div class="documents-tags__wrap">
+				<div
+					class="documents-tags__item"
+					*ngFor="let ingredient of recipe.ingredients"
+				>
+					{{ recipeingredientService.doc(ingredient).name }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Відображення фаз -->
+	<div class="documents-main-row">
+		<div class="documents__title">Фази</div>
+		<div class="documents__description">Рецепт поділяється на:</div>
+		<div class="documents-tags">
+			<div class="documents-tags__wrap">
+				<div
+					class="documents-tags__item"
+					*ngFor="let phase of recipe.phases"
+				>
+					{{ recipephaseService.doc(phase).name }}
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

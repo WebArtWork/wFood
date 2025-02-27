@@ -16,6 +16,7 @@ import { AdminsGuard } from './core/guards/admins.guard';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 const routes: Routes = [
 	{
 		path: '',
