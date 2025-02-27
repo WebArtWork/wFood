@@ -1,9 +1,9 @@
 import { CrudDocument } from 'wacom';
 
 export interface Recipelink extends CrudDocument {
-
-	ingredient?:string
-	phase?: string;
+	id: number; 
+	_id: string;
 	recipe: string;
-
+	ingredient: string;
+	phase: string;
 }
